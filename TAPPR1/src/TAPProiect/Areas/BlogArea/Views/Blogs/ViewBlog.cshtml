@@ -1,0 +1,77 @@
+﻿@model TAP.Web.Areas.BlogArea.Models.BlogViewModel
+@{
+    ViewData["Title"] = "View Blogs";
+}
+
+<div class="container">
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Author</th>
+                <th scope="col">Title</th>
+                <th scope="col">Content</th>
+            </tr>
+        </thead>
+
+        <tr>
+
+            <td>
+                @Model.blog2.Author
+            </td>
+            <td>
+                @Model.blog2.Title
+            </td>
+            <td>
+                @Model.blog2.Content
+            </td>
+        </tr>
+
+        <tbody>
+        </tbody>
+    </table>
+</div>
+@if (Model.Comments.Count() > 0)
+{
+    <div class="container-fluid">
+        <h3><b>Comments:</b></h3>
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Author</th>
+                    <th>Comment</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Comments)
+                {
+                    <tr>
+                        <td>@item.Author</td>
+                        <td>
+                            @item.Content
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <div class="container">
+
+        <h3>No comments :(</h3>
+    </div>
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="container">
+        @Html.ActionLink("Comment", "Create", "Comments", new { blogId = @Model.blog2.Id }, new { @class = "btn btn-danger", role = "button" })
+    </div>
+}
+else
+{
+    <div class="container">
+        @Html.ActionLink("Comment", "Login", "Authentication", null, new { @class = "btn btn-danger", role = "button" })
+    </div>
+}

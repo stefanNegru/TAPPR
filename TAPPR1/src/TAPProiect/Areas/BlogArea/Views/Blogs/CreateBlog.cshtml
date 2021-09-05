@@ -1,0 +1,40 @@
+﻿@model TAP.Web.Areas.BlogArea.Models.BlogCreateViewModel
+@{
+    ViewData["Title"] = "Create New Blog"; 
+}
+<div class="row">
+    <div class="col-md-4">
+        @using (Html.BeginForm("CreateBlog", "Blogs", FormMethod.Post))
+        {
+            <div class="text-danger">
+                <ul>
+                    @foreach (var error in ViewData.ModelState.SelectMany(_ => _.Value.Errors))
+                    {
+                        <li>
+                            @error.ErrorMessage
+                        </li>
+                    }
+                </ul>
+            </div>
+            <div class="form-group">
+                @Html.Label("BlogTitle", "Blog Title")
+                @Html.TextBoxFor(_ => _.BlogTitle, new { @class = "form-control" })
+                @Html.ValidationMessageFor(_ => _.BlogTitle, "", new { @class = "text-danger" })
+
+                @Html.Label("BlogContent", "Blog Content")
+                @Html.TextAreaFor(_ => _.BlogContent, new { @class = "form-control" })
+                @Html.ValidationMessageFor(_ => _.BlogTitle, "", new { @class = "text-danger" })
+
+
+            </div>
+            <div class="form-group">
+                @Html.AntiForgeryToken()
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

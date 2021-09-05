@@ -1,0 +1,10 @@
+C:\Users\sns_4\OneDrive\Рабочий стол\TAPPr\database\TAPDatabase\TAP\bin\Debug\TAP.dacpac
+C:\Users\sns_4\OneDrive\Рабочий стол\TAPPr\database\TAPDatabase\TAP\bin\Debug\TAP.dll
+C:\Users\sns_4\OneDrive\Рабочий стол\TAPPr\database\TAPDatabase\TAP\bin\Debug\TAP.pdb
+C:\Users\sns_4\OneDrive\Рабочий стол\TAPPr\database\TAPDatabase\TAP\obj\Debug\TAP.sqlprojAssemblyReference.cache
+C:\Users\sns_4\OneDrive\Рабочий стол\TAPPr\database\TAPDatabase\TAP\obj\Debug\Model.xml
+C:\Users\sns_4\OneDrive\Рабочий стол\TAPPr\database\TAPDatabase\TAP\obj\Debug\refactor.xml
+C:\Users\sns_4\OneDrive\Рабочий стол\TAPPr\database\TAPDatabase\TAP\obj\Debug\postdeploy.sql
+C:\Users\sns_4\OneDrive\Рабочий стол\TAPPr\database\TAPDatabase\TAP\obj\Debug\predeploy.sql
+C:\Users\sns_4\OneDrive\Рабочий стол\TAPPr\database\TAPDatabase\TAP\obj\Debug\TAP.dll
+C:\Users\sns_4\OneDrive\Рабочий стол\TAPPr\database\TAPDatabase\TAP\obj\Debug\TAP.pdb

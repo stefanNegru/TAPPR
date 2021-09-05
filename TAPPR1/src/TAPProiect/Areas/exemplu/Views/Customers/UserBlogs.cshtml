@@ -1,0 +1,37 @@
+﻿@model TAP.Web.Areas.exemplu.Models.UserBlogsViewModel
+@{ ViewData["Title"] = "My Blogs"; }
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6">
+            @if (Model.Blogs.Count() > 0)
+            {
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">Title</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Blogs)
+        {
+<tr>
+    <td>@item.Title</td>
+    <td style="text-align:center">
+        @item.Content
+        @Html.ActionLink("Delete", "Delete", "Blogs", new { id = item.Id, name = item.Title }, new { @class = "btn btn-danger", role = "button" })
+    </td>
+</tr>
+}
+    </tbody>
+</table> }
+else
+{
+<h3>You haven't created any Blog.</h3>}
+        </div>
+        <div class="col-lg-6" style="text-align:center">
+            @Html.ActionLink("Create A Blog", "CreateBlog", "Blogs", null, new { @class = "btn btn-secondary", role = "button" })
+        </div>
+    </div>
+</div>

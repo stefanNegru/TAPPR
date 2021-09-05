@@ -1,0 +1,58 @@
+﻿@model TAP.Web.Areas.BlogArea.Models.AllBlogsViewModel
+
+@{ ViewData["Title"] = "My Blogs"; }
+@if (Model.Blogs.Count() > 0)
+{
+<div class="container-fluid">
+
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Content</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Blogs)
+            {
+<tr>
+    <td>@item.Title</td>
+    <td>
+        @item.Content
+    </td>
+    <td>
+        @Html.ActionLink("View", "ViewBlog", "Blogs", new { blogID = item.Id }, new { @class = "btn btn-info", role = "button" })
+    </td>
+    @if(User.Identity.IsAuthenticated && Model.UserId == item.UserId)
+    {
+    <td>
+         @Html.ActionLink("Delete", "DeleteBlog", "Blogs", new { id = item.Id, title = item.Title }, new { @class = "btn btn-danger", role = "button" })
+    </td>
+    }
+    
+    
+</tr>}
+        </tbody>
+    </table>
+</div> }
+            else
+            {
+<div>
+
+    <h3>You haven't created any Blogs.</h3>}
+
+</div>}
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="col-lg-6" style="text-align:center">
+        @Html.ActionLink("Create A Blog", "CreateBlog", "Blogs", null, new { @class = "btn btn-secondary", role = "button" })
+    </div>
+}
+else
+{
+    <div class="col-lg-6" style="text-align:center">
+        @Html.ActionLink("Create A Blog", "Login", "Authentication", null, new { @class = "btn btn-secondary", role = "button" })
+    </div>
+}
